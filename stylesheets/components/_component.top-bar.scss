@@ -1,0 +1,49 @@
+.top-bar {
+    position: relative;
+    left: 0;
+    width: 100%;
+
+    &.js__top-bar--ready {
+        top: 0;
+
+        @if map-get($top-bar-features, 'is-sticky') {
+            position: fixed;
+        } @else {
+            position: absolute;
+        }
+
+        @if map-get($top-bar-styles, 'transition') {
+            transition: map-get($top-bar-styles, 'transition');
+        }
+    }
+
+    @if map-get($top-bar-features, 'is-sticky') and map-get($top-bar-features, 'can-autohide') {
+        &.js__top-bar--autohide {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-100%);
+
+            @if map-get($top-bar-styles, 'transition--autohide') {
+                transition: map-get($top-bar-styles, 'transition--autohide');
+            }
+        }
+
+        @if map-get($top-bar-features, 'can-peek') {
+            &.js__top-bar--peek {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+                @if map-get($top-bar-styles, 'transition--peek') {
+                    transition: map-get($top-bar-styles, 'transition--peek');
+                }
+            }
+        }
+
+        &.js__top-bar--reset {
+            &,
+            * {
+                transition: none !important;
+            }
+        }
+    }
+}

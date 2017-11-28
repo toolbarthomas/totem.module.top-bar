@@ -1,0 +1,23 @@
+{#
+    top-bar
+
+    This file is used to generate a single view for `top-bar`.
+    Sources should be defined within the module's view.
+
+    Do not use this file for defining core html for this module.
+    You should define your code within `top-bar/partials`.
+#}
+
+{% extends "totem::src/resources/templates/module/module.twig" %}
+
+{% block module %}
+    No module defined.
+{% endblock %}
+
+{% block head %}
+    <link href="stylesheets/top-bar.css" rel="stylesheet"/>
+{% endblock %}
+
+{% block foot %}
+    <script src="javascripts/top-bar.js"></script>
+{% endblock %}

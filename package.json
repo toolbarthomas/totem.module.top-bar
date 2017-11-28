@@ -1,0 +1,26 @@
+{
+    "name": "totem.module.top-bar",
+    "version": "2.1.1",
+    "description": "Totem Module for displaying a sticky top bar",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/toolbarthomas/totem.module.top-bar.git"
+    },
+    "keywords": [
+        "totem",
+        "top-bar",
+        "totem-module"
+    ],
+    "author": "Thomas van der Velde <contact@toolbarthomas.net>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/toolbarthomas/totem.module.top-bar/issues"
+    },
+    "homepage": "https://github.com/toolbarthomas/totem.module.top-bar#readme",
+    "dependencies": {
+        "jquery": "^2.2.4"
+    }
+}
