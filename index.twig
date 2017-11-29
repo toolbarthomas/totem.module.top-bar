@@ -11,7 +11,15 @@
 {% extends "totem::src/resources/templates/module/module.twig" %}
 
 {% block module %}
-    No module defined.
+
+    {% embed "totem_submodules::totem.module.top-bar/partials/top-bar.twig" %}
+        {% block module %}
+            <h1>Top Bar</h1>
+        {% endblock %}
+    {% endembed %}
+
+    <img src="http://placehold.it/200x3000" alt="">
+
 {% endblock %}
 
 {% block head %}
@@ -19,5 +27,14 @@
 {% endblock %}
 
 {% block foot %}
+    <script>{% include "totem_submodules::totem.module.top-bar/node_modules/jquery/dist/jquery.min.js" ignore missing %}</script>
+
     <script src="javascripts/top-bar.js"></script>
+
+    <script>
+        $(function() {
+            setTopBar();
+        });
+    </script>
+
 {% endblock %}
