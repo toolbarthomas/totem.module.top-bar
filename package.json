@@ -1,6 +1,6 @@
 {
     "name": "totem.module.top-bar",
-    "version": "2.1.1",
+    "version": "2.2.1",
     "description": "Totem Module for displaying a sticky top bar",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
