@@ -27,14 +27,14 @@ Import all stylesheets within ITCSS order from your project stylesheet:
 @import "...node_modules/totem.module.top-bar/stylesheets/utilities/**";
 ```
 
-Next you should import jQuery before you can init the top bar module.
+Next you must import jQuery before you can init the top bar module.
 You can use the following example if your working withing a Totem project*:
 
 ```js
-var $ = require('jquery'); //Require jQuery
-window.jQuery = $; //Define jQuery as a global variable.
+var $ = require('jquery'); //Require jQuery from Node with Browserify
+window.jQuery = $; // Define the jQuery namespace as a global variable.
 
-require('totem.module.top-bar'); // Require Top Bar module
+require('totem.module.top-bar'); //Require jQuery from Node with Browserify
 
 $(function() {
     setTopBar(); // Init Top Bar
@@ -43,7 +43,7 @@ $(function() {
 
 * Since we're requiring the above dependencies with Browserify you should only include the above example.
 
-## Options
+## CSS Options
 You can enable/disable certain settings from **stylesheets/settings/_settings.top-bar-features.scss**:
 
 ```scss
@@ -54,9 +54,44 @@ $top-bar-features: (
 ) !default;
 ```
 
-The easiest way to override these settings is by overriding the whole Sass Map: **$top-bar-features**.
+### is-sticky
+By default, the top bar element will stick to the top of the viewport by using position: absolute.
+You can change this behaviour by changing the key **is-sticky** within the $top-bar-features Sass map.
 
-## Extending
-Because the stylesheets are loaded within the ITCSS it's very easy to include any extra styles.
+### can-autohide
+By default, the top bar element will autohide when the scrolk position of the viewport is greater than the vertical position & outerheight of the top bar.
+You can change this behaviour by changing the key **can-autohide** within the $top-bar-features Sass map.
 
-You should do this with [Generator Totem](https://www.github.com/toolbarthomas/generator-totem) and generate a new module were you place any overrrides in.
+### can-peek
+By default, the top bar element will show when scrolling upwards after it faded out.
+You can change this behaviour by changing the key **can-peek** within the $top-bar-features Sass map.
+
+## JS Options
+
+### Custom push element
+By default, the top bar script will generate a push element so it won't overlap any content.
+You can define a custom element that will be used as push element.
+
+```js
+setTopBar(
+    $('.my-custom-push') // Will set the height of every .my-custom-push element to the top bar's height
+);
+```
+
+### Custom trigger position
+By default, the top bar will trigger some classes based on the viewports scroll position:
+
+1. Small - Uses the class: .js__top-bar--small to the top bar wich can be used for styling purposes. This class will be added if the viewports scrolltop is higher than the top bar element position + outerheight
+2. Autohide - Uses the class: .js__top-bar--autohide to hide the top bar element. This class will be added if the viewports scrolltop is higher than the top bar element position + (outerheight * times 2).
+
+You can adjust the trigger position by defining a custom trigger element
+
+```js
+setTopBar(
+    undefined, //Push Element is not used in this examle
+    $('.my-custom-trigger') // The top bar will trigger it's classes when the user scrolls passed this element
+);
+```
+
+## Styling
+This module only offers some base styling (e.g. autodhide & sticky position). Any other styles should be defined from any child element within the top bar.
