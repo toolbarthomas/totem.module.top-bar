@@ -23,6 +23,6 @@
     "homepage": "https://github.com/toolbarthomas/totem.module.top-bar#readme",
     "dependencies": {
         "jquery": "^2.2.4",
-        "totem.template.module": "^0.6.1"
+        "totem.template.module": "^0.7.0"
     }
 }
