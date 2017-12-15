@@ -1,6 +1,6 @@
 {
     "name": "totem.module.top-bar",
-    "version": "2.5.1",
+    "version": "2.6.0",
     "main": "javascripts/top-bar.js",
     "description": "Totem Module for displaying a sticky top bar",
     "scripts": {
