@@ -12,8 +12,8 @@
             position: absolute;
         }
 
-        @if map-get($top-bar-styles, 'transition') {
-            transition: map-get($top-bar-styles, 'transition');
+        @if get-setting($top-bar-features, 'transitions', 'transition') {
+            transition: get-setting($top-bar-features, 'transitions', 'transition');
         }
     }
 
@@ -23,8 +23,8 @@
             visibility: hidden;
             transform: translateY(-100%);
 
-            @if map-get($top-bar-styles, 'transition--autohide') {
-                transition: map-get($top-bar-styles, 'transition--autohide');
+            @if get-setting($top-bar-features, 'transitions', 'transition--autohide') {
+                transition: get-setting($top-bar-features, 'transitions', 'transition--autohide');
             }
         }
 
@@ -33,8 +33,9 @@
                 opacity: 1;
                 visibility: visible;
                 transform: translateY(0);
-                @if map-get($top-bar-styles, 'transition--peek') {
-                    transition: map-get($top-bar-styles, 'transition--peek');
+
+                @if get-setting($top-bar-features, 'transitions', 'transition--peek') {
+                    transition: get-setting($top-bar-features, 'transitions', 'transition--peek');
                 }
             }
         }
@@ -46,4 +47,9 @@
             }
         }
     }
+}
+
+@if mixin-exists('extend-styles') {
+    @warn 'ouput';
+    @include extend-styles($top-bar-styles);
 }

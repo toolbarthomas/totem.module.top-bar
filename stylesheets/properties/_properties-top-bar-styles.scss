@@ -1,13 +1,5 @@
 $top-bar-styles: (
-    'transition': (
-        all 200ms ease-in-out 0ms
-    ),
-    'transition--autohide': (
-        all 200ms ease-in-out 0ms,
-        visibility 0ms linear 200ms
-    ),
-    'transition--peek': (
-        all 200ms ease-in-out 0ms,
-        visibility 0ms linear 0ms
+    '.top-bar': (
+        'z-index': 300
     )
 ) !default;
