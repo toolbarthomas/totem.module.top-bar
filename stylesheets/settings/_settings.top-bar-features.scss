@@ -2,7 +2,7 @@ $top-bar-features: (
     'is-sticky': true, // Set the position to absolute or fixed
     'can-autohide': true, // Enable/disable autohide behaviour if the scroll position is larger than our the top-bar offset + height
     'can-peek': true, // Enable/disable peek behaviour when scrolling upwards
-    'transitions': (
+    'transitions': ( //Enable/disable transition for .top-bar (.i.e. autohide feature)
         'transition': (
             all 200ms ease-in-out 0ms
         ),
