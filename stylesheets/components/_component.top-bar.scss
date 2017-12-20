@@ -50,6 +50,5 @@
 }
 
 @if mixin-exists('extend-styles') {
-    @warn 'ouput';
     @include extend-styles($top-bar-styles);
 }
